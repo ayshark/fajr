@@ -9,5 +9,5 @@ class Tracker(models.Model):
     daily_status = models.CharField(max_length = 1, choices = STATUS)
 
     def __str__(self):
-        return self.date, self.daily_status
+        return '{}, {}'.format(self.date, self.daily_status)
 

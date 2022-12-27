@@ -14,8 +14,9 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', include('tracker.urls')) #the file name tracker.urls is in quotes so that django lazily loads it when needed. you could import it and use it without quotes but that would mean extra work for django
 ]
