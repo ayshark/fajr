@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    <title>History</title>
+{% endblock title %}
+
+{% block content %}
+    <h1 style="text-align: center; padding-top: 1em; padding-bottom: 1em;">Prayer Information</h1>
+
+    <!-- <div>
+        Your entry from {{ record.date }} has been deleted <br> {{ deleted }} has been deleted
+    </div> -->
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Status</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for r in records %}
+                <tr>
+                    <th scope="row">{{ r.date }}</th>
+                    <td>{{ r.daily_status }}</td>
+                    <td>
+                        <a style="margin-right: 30px;" href="{% url 'edit-record' r.id %}">Edit</a>
+                        <a href="{% url 'delete-record' r.id %}">Remove</a>
+                    </td>
+                        
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <div class="text-center">
+        
+    </div>
+
+    <div class="text-center">
+        <a href="{% url 'create-record' %}"><button type="button" class="btn btn-primary">Add New Day</button></a>
+    </div>
+{% endblock content %}
